@@ -5,9 +5,9 @@ from datetime import date
 
 
 def getData(file):
-	in_file = open(file, 'r')
-	lines = in_file.readlines()[1:]
-	in_file.close()
+    in_file = open(file, 'r')
+    lines = in_file.readlines()[1:]
+    in_file.close()
     student_names = []
     
     for line in lines:
@@ -32,14 +32,14 @@ def getData(file):
 	pass
 
 def mySort(data,col):
-	sorted_names = sorted(data, key=lambda x:x[col])
+    sorted_names = sorted(data, key=lambda x:x[col])
     return sorted_names[0]['First'] + " " + sorted_names[0]['Last']
 	
 	pass
 
 
 def classSizes(data):
-	tuples = []
+    tuples = []
     Senior= 0
     Junior = 0
     Sophomore = 0
@@ -71,7 +71,7 @@ def classSizes(data):
 
 
 def findMonth(a):
-	x = {}
+    x = {}
     for obj in a:
         birthday = obj['DOB']
         birthday = birthday.split("/")
@@ -86,7 +86,7 @@ def findMonth(a):
 	pass
 
 def mySortPrint(a,col,fileName):
-	sorted_name = sorted(a, key=lambda x:x[col])
+    sorted_name = sorted(a, key=lambda x:x[col])
     outfile = open(fileName,"w")
     for name in sorted_names:
         outfile.write("{},{},{}\n".format(name["First"],name["Last"],name["Email"]))
@@ -95,7 +95,7 @@ def mySortPrint(a,col,fileName):
 	pass
 
 def findAge(a):
-	total_age = 0
+    total_age = 0
     today = date.today()
     
     for person in a: 
