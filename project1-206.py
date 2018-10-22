@@ -6,8 +6,8 @@ from datetime import date
 
 def getData(file):
 	in_file = open(file, 'r')
-    lines = in_file.readlines()[1:]
-    in_file.close()
+	lines = in_file.readlines()[1:]
+	in_file.close()
     student_names = []
     
     for line in lines:
