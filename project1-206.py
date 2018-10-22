@@ -29,13 +29,13 @@ def getData(file):
         student_names.append(data)
     return student_names
 	
-	pass
+    pass
 
 def mySort(data,col):
     sorted_names = sorted(data, key=lambda x:x[col])
     return sorted_names[0]['First'] + " " + sorted_names[0]['Last']
 	
-	pass
+    pass
 
 
 def classSizes(data):
@@ -67,7 +67,7 @@ def classSizes(data):
     sorted_tuples = sorted(tuples, key=lambda x:x[1], reverse=True)
     return sorted_tuples
 
-	pass
+    pass
 
 
 def findMonth(a):
@@ -83,7 +83,7 @@ def findMonth(a):
     sorted_x = sorted(x.items(), key=lambda x:x[1], reverse=True)
     return int(sorted_x[0][0])
 
-	pass
+    pass
 
 def mySortPrint(a,col,fileName):
     sorted_name = sorted(a, key=lambda x:x[col])
@@ -92,7 +92,7 @@ def mySortPrint(a,col,fileName):
         outfile.write("{},{},{}\n".format(name["First"],name["Last"],name["Email"]))
     outfile.close()
 
-	pass
+    pass
 
 def findAge(a):
     total_age = 0
@@ -111,7 +111,7 @@ def findAge(a):
     avg_age = int(round(total_age / len(a)))
     return avg_age
 
-	pass
+    pass
 
 
 ################################################################
