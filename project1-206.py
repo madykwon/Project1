@@ -6,34 +6,34 @@ from datetime import date
 
 def getData(file):
 	in_file = open(file,'r')
-	    lines = in_file.readlines()[1:]
-	    in_file.close()
-	    student_names = []
-	    
-	    for line in lines:
-	        line = line.rstrip("\n")
-	        line = line.split(",")
-	        first = line[0]
-	        last = line[1]
-	        email = line[2]
-	        year = line[3]
-	        dob = line[4]
-	        
-	        data = {}
-	        data["First"] = first
-	        data["Last"] = last
-	        data["Email"] = email
-	        data["Class"] = year
-	        data["DOB"] = dob
-	        
-	        student_names.append(data)
-	    return student_names
+    lines = in_file.readlines()[1:]
+    in_file.close()
+    student_names = []
+    
+    for line in lines:
+        line = line.rstrip("\n")
+        line = line.split(",")
+        first = line[0]
+        last = line[1]
+        email = line[2]
+        year = line[3]
+        dob = line[4]
+        
+        data = {}
+        data["First"] = first
+        data["Last"] = last
+        data["Email"] = email
+        data["Class"] = year
+        data["DOB"] = dob
+        
+        student_names.append(data)
+    return student_names
 	
 	pass
 
 def mySort(data,col):
 	sorted_names = sorted(data, key=lambda x: x[col])
-	return sorted_names[0]['First'] + " " + sorted_names[0]['Last']
+    return sorted_names[0]['First'] + " " + sorted_names[0]['Last']
 	
 	pass
 
