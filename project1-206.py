@@ -28,46 +28,89 @@ def getData(file):
 	        
 	        student_names.append(data)
 	    return student_names
+	
 	pass
 
 def mySort(data,col):
 	sorted_names = sorted(data, key=lambda x: x[col])
 	return sorted_names[0]['First'] + " " + sorted_names[0]['Last']
+	
 	pass
 
 
 def classSizes(data):
-# Create a histogram
-# Input: list of dictionaries
-# Output: Return a list of tuples sorted by the number of students in that class in
-# descending order
-# [('Senior', 26), ('Junior', 25), ('Freshman', 21), ('Sophomore', 18)]
+	tuples = []
+    
+    Senior= 0
+    Junior = 0
+    Sophomore = 0
+    Freshman = 0
+    
+    for dict in data:
+        if dict["Class"] == "Senior":
+            Senior += 1
+        elif dict["Class"] == "Junior":
+            Junior += 1
+        elif dict["Class"] == "Sophomore":
+            Sophomore += 1
+        elif dict["Class"] == "Freshman":
+            Freshman += 1
+      
+    (a, b) = ("Senior", Senior)
+    (c, d) = ("Junior", Junior)
+    (e, f) = ("Sophomore", Sophomore)
+    (g, h) = ("Freshman", Freshman)
+    tuples.append((a,b))
+    tuples.append((c, d))
+    tuples.append((e, f))
+    tuples.append((g, h))
+    
+    sorted_tuples = sorted(tuples, key=lambda x:x[1], reverse=True)
+    return sorted_tuples
 
 	pass
 
 
 def findMonth(a):
-# Find the most common birth month form this data
-# Input: list of dictionaries
-# Output: Return the month (1-12) that had the most births in the data
+	x = {}
+    for obj in a:
+        birthday = obj['DOB']
+        birthday = birthday.split("/")
+        month = birthday[0]
+        if month not in x:
+            x[month] = 0
+        x[month] += 1
+    
+    sorted_x = sorted(x.items(), key=lambda x:x[1], reverse=True)
+    return int(sorted_x[0][0])
 
 	pass
 
 def mySortPrint(a,col,fileName):
-#Similar to mySort, but instead of returning single
-#Student, the sorted data is saved to a csv file.
-# as fist,last,email
-#Input: list of dictionaries, col (key) to sort by and output file name
-#Output: No return value, but the file is written
+	sorted_names = sorted(a, key=lambda x: x[col])
+    outfile = open(fileName,"w")
+    for name in sorted_names:
+        outfile.write("{},{},{}\n".format(name["First"],name["Last"],name["Email"]))
+    outfile.close()
 
 	pass
 
 def findAge(a):
-# def findAge(a):
-# Input: list of dictionaries
-# Output: Return the average age of the students and round that age to the nearest
-# integer.  You will need to work with the DOB and the current date to find the current
-# age in years.
+	total_age = 0
+    today = date.today()
+    
+    for person in a: 
+        dob = person['DOB']
+        dob = dob.split("/")
+        month = dob[0]
+        day = dob[1]
+        year= dob[2]
+
+        age = today.year - int(year) - ((today.month, today.day) < (int(month), int(day)))
+        total_age += age
+        
+    avg_age = int(round(total_age / len(a)))
+    return avg_age
 
 	pass
 
