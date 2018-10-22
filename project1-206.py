@@ -31,10 +31,8 @@ def getData(file):
 	pass
 
 def mySort(data,col):
-# Sort based on key/column
-#Input: list of dictionaries and col (key) to sort on
-#Output: Return the first item in the sorted list as a string of just: firstName lastName
-
+	sorted_names = sorted(data, key=lambda x: x[col])
+	return sorted_names[0]['First'] + " " + sorted_names[0]['Last']
 	pass
 
 
